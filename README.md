@@ -19,8 +19,9 @@ An evil hangman game where the computer cheats.
 
 # Mockups
 
-Inline-style: 
 ![alt text](myImage.png "img")
+![alt text](myImage2.png "img")
+
 
 
 
