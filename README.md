@@ -22,6 +22,14 @@ An evil hangman game where the computer cheats.
 ![alt text](myImage.png "img")
 ![alt text](myImage2.png "img")
 
+# Task
+
+* Main screen - Marten
+* You win/lose screen - Sebastiaan
+* Highscore - Sebastiaan
+* Settings - Marten/Sebastiaan
+* Hangman game - Marten/Sebastiaan
+
 
 
 
