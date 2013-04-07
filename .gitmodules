@@ -1,0 +1,3 @@
+[submodule "project5.wiki"]
+	path = project5.wiki
+	url = git@github.com:Hatseflats/project5.wiki.git

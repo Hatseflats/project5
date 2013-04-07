@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:hangman="nl.mprog.apps.evilhangman">
+    <SwitchPreference
+        android:key="pref_evil"
+        android:title="@string/settings_evil"
+        android:summaryOn="@string/settings_evil_desc"
+        android:summaryOff="@string/settings_evil_desc"
+        android:switchTextOn="Evil"
+        android:switchTextOff="Good"
+        android:defaultValue="true" />
+	<nl.mprog.apps.evilhangman.SeekBarPreference
+      android:key="pref_length"
+          android:title="@string/settings_wordlength"
+          android:summary="@string/settings_wordlength_desc"
+          android:defaultValue="10"
+          android:max="24"
+          hangman:min="1"
+      	  hangman:unitsLeft=""
+          hangman:unitsRight=" Letters"
+      />
+  	<nl.mprog.apps.evilhangman.SeekBarPreference
+      android:key="pref_guessesamount"
+          android:title="@string/settings_guesses"
+          android:summary="@string/settings_guesses_desc"
+          android:defaultValue="10"
+          android:max="26"
+          hangman:min="1"
+      	  hangman:unitsLeft=""
+          hangman:unitsRight=" Guesses"
+      />
+</PreferenceScreen>
