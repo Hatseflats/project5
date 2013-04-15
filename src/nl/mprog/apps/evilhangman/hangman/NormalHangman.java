@@ -4,25 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import nl.mprog.apps.evilhangman.persistence.WordsAssetsHelper;
-import android.content.Context;
-
+/**
+ * Standard hangman game with a single word to guess.
+ * The word to guess will be decided in the initializeWith method.
+ * http://en.wikipedia.org/wiki/Hangman_%28game%29
+ * 
+ * @author Marten
+ * @author Sebastiaan
+ *
+ */
 public class NormalHangman implements Hangman {
 
-	private int wordLength;
 	private String holdingWord;
-	private List<String> words;
 	private int guesses;
-	private int maxGuesses;
 	private List<String> currentWord;
 	private List<Character> wrongGuessedChars;
 	private List<Character> correctGuessedChars;
-	private Context context;
 	
-	@Override
+	public NormalHangman() {
+		wrongGuessedChars = new ArrayList<Character>();
+		correctGuessedChars = new ArrayList<Character>();
+		currentWord = new ArrayList<String>();
+	}
+	
 	public void addLetter(char letter) {
-		
-		if(holdingWord.indexOf(letter) != -1 ){
+		if (holdingWord.indexOf(letter) != -1){
 			correctGuessedChars.add(letter);
 			updateCurrentWord();
 		} else {
@@ -46,33 +52,28 @@ public class NormalHangman implements Hangman {
 		}
 		return res;
 	}
-
-	public void setWords(List<String> words){
-		this.words = words;
-	}
-
-	public int getWordLength() {
-		return wordLength;
-	}
-
-	public void setWordLength(int length) {
-		this.wordLength = length;
-	}
 	
 	public int getGuesses() {
 		return guesses;
 	}
-	
-	public void setContext(Context context){
-		this.context = context;
-	}
-
-	public void setMaxGuesses(int maxGuesses) {
-		this.maxGuesses = maxGuesses;
-	}
 
 	public boolean gameOver() {
 		return guesses == 0;
+	}
+
+	public int getGuessesUsed() {
+		return wrongGuessedChars.size();
+	}
+
+	public void initializeWith(int wordLength, int maxGuesses,
+			List<String> words) {
+		guesses = maxGuesses;
+		for (int i = 0; i < wordLength; i++) {
+			currentWord.add(DEFAULT_LETTER);
+		}
+		
+		Random random = new Random();
+		holdingWord = words.get(random.nextInt(words.size()));
 	}
 
 	public boolean gameWon() {
@@ -85,29 +86,11 @@ public class NormalHangman implements Hangman {
 		
 		return finished;
 	}
-
-	@Override
-	public void setUp() {
-
-		currentWord = new ArrayList<String>();
-		guesses = maxGuesses;
-		
-		for (int i = 0; i < wordLength; i++) {
-			currentWord.add(DEFAULT_LETTER);
-		}
-		
-		wrongGuessedChars = new ArrayList<Character>();
-		correctGuessedChars = new ArrayList<Character>();
-		
-		Random random = new Random();
-		this.holdingWord = this.words.get(random.nextInt(this.words.size()));
-	}
-
-	@Override
-	public void restart() {
-		setUp();
-	}
 	
+	/**
+	 * Checks which letters have been guessed already, and replaces the ones that aren't guessed yet
+	 *  with the {@link #DEFAULT_LETTER}.
+	 */
 	private void updateCurrentWord() {
 		List<String> list = new ArrayList<String>();
 		
@@ -121,10 +104,6 @@ public class NormalHangman implements Hangman {
 		}
 		
 		currentWord = list;
-	}
-
-	public int getGuessesUsed() {
-		return wrongGuessedChars.size();
 	}
 
 }

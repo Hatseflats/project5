@@ -1,6 +1,6 @@
 package nl.mprog.apps.evilhangman.persistence;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import android.content.Context;
@@ -9,7 +9,15 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
+/**
+ * Mapper to get all the words, the sqlite database is saved under assets/databases/words.zip
+ * 
+ * @author Marten
+ * @author Sebastiaan
+ *
+ */
 public class WordsAssetsHelper extends SQLiteAssetHelper {
+	
     private static final String DATABASE_NAME = "words";
     private static final int DATABASE_VERSION = 1;
 
@@ -18,7 +26,7 @@ public class WordsAssetsHelper extends SQLiteAssetHelper {
     }
     
     public List<String> wordsByLength(int length){
-		List<String> list = new ArrayList<String>();
+		List<String> list = new LinkedList<String>();
     	SQLiteDatabase db = getReadableDatabase();
     	
     	String sql = "SELECT * FROM " + DATABASE_NAME + " WHERE length = " + length + ";";

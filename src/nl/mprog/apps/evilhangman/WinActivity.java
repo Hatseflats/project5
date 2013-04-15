@@ -1,5 +1,6 @@
 package nl.mprog.apps.evilhangman;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
+/**
+ * Activity that pops up when the user has won the game.
+ * 
+ * @author Marten
+ * @author Sebastiaan
+ *
+ */
 public class WinActivity extends Activity {
 
 	@Override
@@ -28,9 +36,9 @@ public class WinActivity extends Activity {
 	 * Set up the {@link android.app.ActionBar}.
 	 */
 	private void setupActionBar() {
-
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		}
 	}
 
 	@Override
@@ -58,13 +66,22 @@ public class WinActivity extends Activity {
 	}
 
 	public void restartGame(View view) {
+		setResult(RESULT_OK);
 		finish();
 	}
 	
 	public void viewHighscores(View view) {
 		Intent intent = new Intent(this, HighscoresActivity.class);
-		startActivity(intent);
-		finish();
+		startActivityForResult(intent, MainActivity.RESTART_GAME);
+	}
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == MainActivity.RESTART_GAME) {
+			if (resultCode == RESULT_OK) {
+				setResult(RESULT_OK);
+				finish();
+			}
+		}
 	}
 
 }

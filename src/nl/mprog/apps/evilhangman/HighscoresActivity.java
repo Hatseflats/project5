@@ -6,12 +6,22 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * Activity that shows the top 10 highscores from the user.
+ * 
+ * @author Marten
+ * @author Sebastiaan
+ *
+ */
 public class HighscoresActivity extends Activity {
 	
 	public static final String HIGHSCORE = "highscore";
@@ -23,14 +33,51 @@ public class HighscoresActivity extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
+		makeHighscoreList(0);
+	}
+	
+	public void makeHighscoreList(int evil){
 		LinearLayout layout = (LinearLayout) findViewById(R.id.highscores);
+		layout.removeAllViewsInLayout();
 
 		HighscoresHandler handler = new HighscoresHandler(this);
-		for (Highscore highscore : handler.getHighscores()) {
+		int i = 1; // rank in highscores
+	
+		for (Highscore highscore : handler.getHighscores(evil)) {
+			String text = String.valueOf(i) +" "+ highscore.getWord() +" "+ highscore.getGuesses();
 			TextView textView = new TextView(this);
-			textView.setText(highscore.getWord() +" "+ highscore.getGuesses());
+			textView.setText(text);
+			textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+			textView.setGravity(Gravity.CENTER);
 			layout.addView(textView);
+			i++;
 		}
+	}
+	
+	public void normal(View view){
+		Button buttonnormal = (Button) findViewById(R.id.normalhighscores);
+		buttonnormal.setEnabled(false);
+		
+		Button buttonevil = (Button) findViewById(R.id.evilhighscores);
+		buttonevil.setEnabled(true);
+		
+		TextView title = (TextView) findViewById(R.id.title);
+		title.setText("Normal Highscores");
+		
+		makeHighscoreList(0);
+	}
+	
+	public void evil(View view){
+		Button buttonnormal = (Button) findViewById(R.id.normalhighscores);
+		buttonnormal.setEnabled(true);
+		
+		Button buttonevil = (Button) findViewById(R.id.evilhighscores);
+		buttonevil.setEnabled(false);
+		
+		TextView title = (TextView) findViewById(R.id.title);
+		title.setText("Evil Highscores");
+		
+		makeHighscoreList(1);
 	}
 
 	/**
@@ -67,6 +114,7 @@ public class HighscoresActivity extends Activity {
 	}
 	
 	public void playAgain(View view) {
+		setResult(RESULT_OK);
 		finish();
 	}
 
