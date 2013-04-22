@@ -61,9 +61,4 @@ public class HangmanTest extends TestCase {
 		assertTrue(hangman.gameWon());
 		assertEquals(hangman.getGuessesUsed(), 1);
 	}
-	
-	public void testEvilHangmanWithWordsFromDatabase() {
-		
-	}
-
 }
