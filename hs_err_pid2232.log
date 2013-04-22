@@ -1,0 +1,137 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaClasses.cpp:129), pid=2232, tid=1484
+#  fatal error: Invalid layout of preloaded class
+#
+# JRE version: 7.0_15-b03
+# Java VM: Java HotSpot(TM) Client VM (23.7-b01 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00bfa800):  JavaThread "Unknown thread" [_thread_in_vm, id=1484, stack(0x00900000,0x00950000)]
+
+Stack: [0x00900000,0x00950000],  sp=0x0094faa8,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x16f261]
+V  [jvm.dll+0x1693d6]
+V  [jvm.dll+0x2079f]
+V  [jvm.dll+0x20826]
+V  [jvm.dll+0x2e5bd]
+V  [jvm.dll+0x2e869]
+V  [jvm.dll+0x77ba1]
+V  [jvm.dll+0x77f5b]
+V  [jvm.dll+0x1290e1]
+V  [jvm.dll+0x149b3a]
+V  [jvm.dll+0xa98df]
+C  [javaw.exe+0x13ca]
+C  [javaw.exe+0x1e3c]
+C  [javaw.exe+0xa5a1]
+C  [javaw.exe+0xa62b]
+C  [KERNEL32.DLL+0x28543]  BaseThreadInitThunk+0xe
+C  [ntdll.dll+0x5ac69]  RtlInitializeExceptionChain+0x85
+C  [ntdll.dll+0x5ac3c]  RtlInitializeExceptionChain+0x58
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00bfa800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=1484, stack(0x00900000,0x00950000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.056 loading class 0x00a44190 done
+Event: 0.057 loading class 0x00a25c30 done
+Event: 0.057 loading class 0x00a25d48
+Event: 0.057 loading class 0x00a467d0
+Event: 0.058 loading class 0x00a467d0 done
+Event: 0.058 loading class 0x00a46808
+Event: 0.058 loading class 0x00a46808 done
+Event: 0.058 loading class 0x00a90f40
+Event: 0.059 loading class 0x00a90f40 done
+Event: 0.059 loading class 0x00a25d48 done
+
+
+Dynamic libraries:
+0x00c30000 - 0x00c5f000 	C:\Program Files (x86)\Java\jre7\bin\javaw.exe
+0x77780000 - 0x778d7000 	C:\Windows\SYSTEM32\ntdll.dll
+0x76d60000 - 0x76e90000 	C:\Windows\SYSTEM32\KERNEL32.DLL
+0x76920000 - 0x769c6000 	C:\Windows\SYSTEM32\KERNELBASE.dll
+0x76e90000 - 0x76f3e000 	C:\Windows\SYSTEM32\ADVAPI32.dll
+0x766d0000 - 0x767e6000 	C:\Windows\SYSTEM32\USER32.dll
+0x73620000 - 0x73817000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9200.16384_none_893961408605e985\COMCTL32.dll
+0x74f50000 - 0x75001000 	C:\Windows\SYSTEM32\msvcrt.dll
+0x76180000 - 0x761b4000 	C:\Windows\SYSTEM32\sechost.dll
+0x765e0000 - 0x7668c000 	C:\Windows\SYSTEM32\RPCRT4.dll
+0x76f40000 - 0x7703d000 	C:\Windows\SYSTEM32\GDI32.dll
+0x74dc0000 - 0x74ddc000 	C:\Windows\SYSTEM32\SspiCli.dll
+0x74db0000 - 0x74db9000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x74d50000 - 0x74da1000 	C:\Windows\SYSTEM32\bcryptPrimitives.dll
+0x76100000 - 0x76120000 	C:\Windows\system32\IMM32.DLL
+0x76ab0000 - 0x76b8d000 	C:\Windows\SYSTEM32\MSCTF.dll
+0x74ca0000 - 0x74cd6000 	C:\Windows\SYSTEM32\nvinit.dll
+0x0f000000 - 0x0f006000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\detoured.dll
+0x74850000 - 0x7489c000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\nvd3d9wrap.dll
+0x770b0000 - 0x7725f000 	C:\Windows\SYSTEM32\SETUPAPI.dll
+0x77040000 - 0x77086000 	C:\Windows\SYSTEM32\CFGMGR32.dll
+0x77090000 - 0x770ae000 	C:\Windows\SYSTEM32\DEVOBJ.dll
+0x74810000 - 0x74843000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\nvdxgiwrap.dll
+0x626c0000 - 0x6277e000 	C:\Program Files (x86)\Java\jre7\bin\msvcr100.dll
+0x72f10000 - 0x7325c000 	C:\Program Files (x86)\Java\jre7\bin\client\jvm.dll
+0x745d0000 - 0x745d8000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x748d0000 - 0x748f1000 	C:\Windows\SYSTEM32\WINMM.dll
+0x76b90000 - 0x76b96000 	C:\Windows\SYSTEM32\PSAPI.DLL
+0x76a60000 - 0x76ab0000 	C:\Windows\SYSTEM32\WS2_32.dll
+0x748a0000 - 0x748ca000 	C:\Windows\SYSTEM32\WINMMBASE.dll
+0x765d0000 - 0x765d8000 	C:\Windows\SYSTEM32\NSI.dll
+0x74500000 - 0x7450c000 	C:\Program Files (x86)\Java\jre7\bin\verify.dll
+0x74320000 - 0x74340000 	C:\Program Files (x86)\Java\jre7\bin\java.dll
+0x74300000 - 0x74313000 	C:\Program Files (x86)\Java\jre7\bin\zip.dll
+0x740f0000 - 0x74219000 	C:\Windows\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 -Xbootclasspath:C:\Users\Sebastiaan\android-sdks\platforms\android-17\android.jar 
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 65179 -testLoaderClass org.eclipse.jdt.internal.junit.runner.junit3.JUnit3TestLoader -loaderpluginname org.eclipse.jdt.junit.runtime -classNames nl.mprog.apps.evilhangman.tests.HangmanTest
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Program Files (x86)/Java/jre7/bin/client;C:/Program Files (x86)/Java/jre7/bin;C:/Program Files (x86)/Java/jre7/lib/i386;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Diskeeper Corporation\ExpressCache\;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Program Files\SlikSvn\bin;D:\RailsInstaller\Git\cmd;D:\RailsInstaller\Ruby1.9.3\bin;C:\Python33;C:\texlive\2012\bin\win32;C:\Program Files (x86)\SumatraPDF;C:\eclipse;
+USERNAME=Sebastiaan
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 4077120k(994568k free), swap 5584448k(1783056k free)
+
+vm_info: Java HotSpot(TM) Client VM (23.7-b01) for windows-x86 JRE (1.7.0_15-b03), built on Feb 15 2013 14:01:25 by "java_re" with unknown MS VC++:1600
+
+time: Mon Apr 22 11:25:44 2013
+elapsed time: 0 seconds
+
